@@ -1,6 +1,7 @@
-import Link from "next/link"
+import Link from "next/link";
+import * as React from 'react'
 
-const NotFound = () => {
+const NotFound: React.FC = () => {
     return (
         <div className='not-found'>
             <h2>Sorry....</h2>

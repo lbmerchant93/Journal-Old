@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import * as React from 'react'
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
     return (
         <nav>
             <Link href='/'><a>Home</a></Link>
