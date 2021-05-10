@@ -1,6 +1,8 @@
 const AllJournalEntries = () => {
     return (
-        <p>All journal entries page</p>
+        <main>
+          <p>All journal entries page</p>  
+        </main>
     )
 }
 

@@ -1,6 +1,8 @@
 const NewJournalEntry = () => {
     return (
-        <p>New journal entry page</p>
+        <main>
+           <p>New journal entry page</p> 
+        </main>
     )
 }
 
