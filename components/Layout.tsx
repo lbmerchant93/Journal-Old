@@ -1,7 +1,8 @@
 import Link from "next/link";
+import React from "react";
 import NavBar from "./Navbar"
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div>
             <Link href='/'><h1>MiWi</h1></Link>
