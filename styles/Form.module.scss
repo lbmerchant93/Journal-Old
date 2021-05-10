@@ -1,0 +1,19 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form label {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.form input {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.numberInput {
+    width: 50%;
+}
