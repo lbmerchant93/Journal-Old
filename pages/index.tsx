@@ -1,10 +1,11 @@
 import styles from '../styles/Home.module.scss';
+import * as React from 'react'
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
-    <div>
-      <h1 className={styles.title}>MiWi</h1>
+    <main>
       <p>Welcome to MiWi! Your personal Midwifery App!</p>
-    </div>
+    </main>
   )
 }
+export default Home;
