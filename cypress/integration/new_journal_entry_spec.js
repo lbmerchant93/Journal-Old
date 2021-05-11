@@ -40,7 +40,7 @@ describe('Dashboard UI', () => {
         cy.get('label').eq(11).contains('Garland Pose')
     })
 
-    it.only('Should contain a submit button', () => {
+    it('Should contain a submit button', () => {
         cy.get('input').eq(10).should('have.attr', 'type', 'submit')
     })
 })
