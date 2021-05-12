@@ -7,4 +7,5 @@ export interface IJournalEntryData {
     exercise: number;
     kegels: number;
     garlandPose: number;
+    userId: number;
 }
