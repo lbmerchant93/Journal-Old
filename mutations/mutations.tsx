@@ -15,3 +15,11 @@ export const CREATE_JOURNAL_ENTRY = gql`
         }
     }
 `
+
+export const DELETE_JOURNAL_ENTRY = gql`
+    mutation deleteJournalEntry ($id: ID!) {
+        deleteJournalEntry (id: $id) {
+            id
+        }
+    }   
+`
