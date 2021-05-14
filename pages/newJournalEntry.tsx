@@ -21,11 +21,7 @@ const NewJournalEntry: React.FC = () => {
         userId: "1"
     })
 
-    const [createJournalEntry] = useMutation(CREATE_JOURNAL_ENTRY, {
-        onCompleted: data => {
-
-        }
-    });
+    const [createJournalEntry] = useMutation(CREATE_JOURNAL_ENTRY);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         let newInput: string | number | boolean;
@@ -61,7 +57,6 @@ const NewJournalEntry: React.FC = () => {
             }, 
             refetchQueries: [{ query: JOURNAL_ENTRIES_QUERY }]
         })
-        console.log(formData)
     }
 
     return (
