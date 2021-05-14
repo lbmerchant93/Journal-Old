@@ -1,6 +1,9 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import styles from '../styles/Form.module.scss';
 import { IJournalEntryData } from '../interfaces/journalEntryForm';
+import { CREATE_JOURNAL_ENTRY } from '../mutations/mutations';
+import { JOURNAL_ENTRIES_QUERY } from '../queries/queries';
+import { useMutation } from '@apollo/client';
 
 const NewJournalEntry: React.FC = () => {
 
@@ -15,8 +18,14 @@ const NewJournalEntry: React.FC = () => {
         exercise: 0,
         kegels: 0,
         garlandPose: 0,
-        userId: 1
+        userId: "1"
     })
+
+    const [createJournalEntry] = useMutation(CREATE_JOURNAL_ENTRY, {
+        onCompleted: data => {
+
+        }
+    });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         let newInput: string | number | boolean;
@@ -36,6 +45,22 @@ const NewJournalEntry: React.FC = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        createJournalEntry({
+            variables: {
+                input: {
+                    date: formData.date,
+                    prenatalVitamins: formData.prenatalVitamins,
+                    probiotics: formData.probiotics,
+                    waterIntake: formData.waterIntake,
+                    proteinIntake: formData.proteinIntake,
+                    exercise: formData.exercise,
+                    kegels: formData.kegels,
+                    garlandPose: formData.garlandPose,
+                    userId: formData.userId
+                }
+            }, 
+            refetchQueries: [{ query: JOURNAL_ENTRIES_QUERY }]
+        })
         console.log(formData)
     }
 
