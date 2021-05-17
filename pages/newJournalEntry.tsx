@@ -4,8 +4,10 @@ import { IJournalEntryData } from '../interfaces/journalEntryForm';
 import { CREATE_JOURNAL_ENTRY } from '../mutations/mutations';
 import { JOURNAL_ENTRIES_QUERY } from '../queries/queries';
 import { useMutation } from '@apollo/client';
+import { useRouter } from 'next/router'
 
 const NewJournalEntry: React.FC = () => {
+    const router = useRouter();
 
     let formObj : IJournalEntryData;
 
@@ -21,7 +23,16 @@ const NewJournalEntry: React.FC = () => {
         userId: "1"
     })
 
-    const [createJournalEntry] = useMutation(CREATE_JOURNAL_ENTRY);
+    const [createJournalEntry] = useMutation(
+        CREATE_JOURNAL_ENTRY, 
+        {
+            onCompleted: () => {
+                alert('Journal entry was successfully posted!!'),
+                router.push('/allJournalEntries')
+            },
+            onError: (error) => {alert(error)}
+        }
+    );
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         let newInput: string | number | boolean;

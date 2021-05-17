@@ -3,6 +3,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { JOURNAL_ENTRIES_QUERY } from '../queries/queries';
 import { IJournalEntriesQuery } from '../interfaces/journalEntriesQuery';
 import { DELETE_JOURNAL_ENTRY } from '../mutations/mutations';
+import styles from '../styles/AllJournalEntries.module.scss';
 
 const AllJournalEntries: React.FC = () => {
   const { loading, error, data } = useQuery(JOURNAL_ENTRIES_QUERY);
@@ -13,7 +14,7 @@ const AllJournalEntries: React.FC = () => {
     display = data;
     return data.journalEntries.map((entry: IJournalEntriesQuery) => {
       return (
-        <article key={entry.id} >
+        <article key={entry.id} className={styles.entry}>
           <h3>{entry.date}</h3>
           <p>Prenatal Vitamins: {entry.prenatalVitamins ? 'true' : 'false'}</p>
           <p>Probiotics: {entry.probiotics ? 'true' : 'false'}</p>
@@ -39,7 +40,7 @@ const AllJournalEntries: React.FC = () => {
       <main>
         <h2>Previous Journal Entries</h2>
         {loading && <div>Loading journal entries..</div>}
-        {data && displayJournalEntries()}
+        {data && <section className={styles.allEntries}>{displayJournalEntries()}</section>}
         {error && <div>{error}</div>}
       </main>
   )
