@@ -13,13 +13,13 @@ const NewJournalEntry: React.FC = () => {
 
     const [formData, setFormData] = useState(formObj = {
         date: '',
-        prenatalVitamins: false,
-        probiotics: false,
         waterIntake: 0,
         proteinIntake: 0,
         exercise: 0,
         kegels: 0,
         garlandPose: 0,
+        prenatalVitamins: false,
+        probiotics: false,
         userId: "1"
     })
 
@@ -56,13 +56,13 @@ const NewJournalEntry: React.FC = () => {
             variables: {
                 input: {
                     date: formData.date,
-                    prenatalVitamins: formData.prenatalVitamins,
-                    probiotics: formData.probiotics,
                     waterIntake: formData.waterIntake,
                     proteinIntake: formData.proteinIntake,
                     exercise: formData.exercise,
                     kegels: formData.kegels,
                     garlandPose: formData.garlandPose,
+                    prenatalVitamins: formData.prenatalVitamins,
+                    probiotics: formData.probiotics,
                     userId: formData.userId
                 }
             }, 
@@ -72,6 +72,7 @@ const NewJournalEntry: React.FC = () => {
 
     return (
         <main>
+            <h2 className={styles.pageTitle}>Create a new journal entry!</h2>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <label>Date: </label>
                 <input 
@@ -80,49 +81,8 @@ const NewJournalEntry: React.FC = () => {
                     onChange={handleChange} 
                     required
                 />
-                <label>
-                    Prenatal Vitamins: 
-                    <label>
-                        Yes
-                        <input 
-                            name='prenatalVitamins' 
-                            type='radio' 
-                            value='true' 
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <label>
-                        No
-                        <input 
-                            name='prenatalVitamins' 
-                            type='radio' 
-                            value='false' 
-                            onChange={handleChange}
-                        />
-                    </label>
-                </label>
-                <label>
-                    Probiotics: 
-                    <label>
-                        Yes
-                        <input 
-                            name='probiotics' 
-                            type='radio' 
-                            value='true' 
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <label>
-                        No
-                        <input 
-                            name='probiotics' 
-                            type='radio' 
-                            value='false' 
-                            onChange={handleChange}
-                        />
-                    </label>
-                </label>
-                <label>Water Intake: </label>
+                
+                <label>How many ounces of water did you drink?</label>
                 <input 
                     type='number' 
                     name='waterIntake' 
@@ -132,7 +92,7 @@ const NewJournalEntry: React.FC = () => {
                     onChange={handleChange}
                     required
                 />
-                <label>Protein Intake: </label>
+                <label>How many grams of protein did you have?</label>
                 <input 
                     type='number' 
                     name='proteinIntake' 
@@ -142,7 +102,7 @@ const NewJournalEntry: React.FC = () => {
                     onChange={handleChange}
                     required
                 />
-                <label>Exercise: </label>
+                <label>How many minutes did you exercise for?</label>
                 <input 
                     type='number' 
                     name='exercise' 
@@ -152,7 +112,7 @@ const NewJournalEntry: React.FC = () => {
                     onChange={handleChange}
                     required
                 />
-                <label>Kegels: </label>
+                <label>How many kegels did you do?</label>
                 <input 
                     type='number' 
                     name='kegels' 
@@ -162,7 +122,7 @@ const NewJournalEntry: React.FC = () => {
                     onChange={handleChange}
                     required
                 />
-                <label>Garland Pose: </label>
+                <label>How many minutes did you do garland pose for?</label>
                 <input 
                     type='number' 
                     name='garlandPose' 
@@ -172,6 +132,48 @@ const NewJournalEntry: React.FC = () => {
                     onChange={handleChange} 
                     required
                 />
+                <label>
+                    Did you take prenatal vitamins?  
+                    <label>
+                        Yes
+                        <input 
+                            name='prenatalVitamins' 
+                            type='radio' 
+                            value='true' 
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label>
+                        No
+                        <input 
+                            name='prenatalVitamins' 
+                            type='radio' 
+                            value='false' 
+                            onChange={handleChange}
+                        />
+                    </label>
+                </label>
+                <label>
+                    Did you take probiotics? 
+                    <label>
+                        Yes
+                        <input 
+                            name='probiotics' 
+                            type='radio' 
+                            value='true' 
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label>
+                        No
+                        <input 
+                            name='probiotics' 
+                            type='radio' 
+                            value='false' 
+                            onChange={handleChange}
+                        />
+                    </label>
+                </label>
                 <button type='submit'>Submit</button>
             </form> 
         </main>

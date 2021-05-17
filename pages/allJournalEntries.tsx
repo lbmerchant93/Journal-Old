@@ -16,13 +16,13 @@ const AllJournalEntries: React.FC = () => {
       return (
         <article key={entry.id} className={styles.entry}>
           <h3>{entry.date}</h3>
-          <p>Prenatal Vitamins: {entry.prenatalVitamins ? 'true' : 'false'}</p>
-          <p>Probiotics: {entry.probiotics ? 'true' : 'false'}</p>
-          <p>Water Intake: {entry.waterIntake} oz</p>
-          <p>Protein Intake: {entry.proteinIntake} g</p>
-          <p>Exercise: {entry.exercise} min</p>
-          <p>Kegels: {entry.kegels} reps</p>
-          <p>Garland Pose: {entry.garlandPose} min</p>
+          <p>Amount of water you drank: {entry.waterIntake} oz</p>
+          <p>Amount of protein you had: {entry.proteinIntake} g</p>
+          <p>How long you exercised for: {entry.exercise} min</p>
+          <p>How many kegels you did: {entry.kegels} reps</p>
+          <p>How long you did garland pose for: {entry.garlandPose} min</p>
+          <p>Took your prenatal vitamins? {entry.prenatalVitamins ? 'yes' : 'no'}</p>
+          <p>Took your probiotics? {entry.probiotics ? 'yes' : 'no'}</p>
           <button id={entry.id} onClick={removeJournalEntry}>Delete Entry</button>
         </article>
       )
