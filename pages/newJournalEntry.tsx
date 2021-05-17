@@ -81,7 +81,6 @@ const NewJournalEntry: React.FC = () => {
                     onChange={handleChange} 
                     required
                 />
-                
                 <label>How many ounces of water did you drink?</label>
                 <input 
                     type='number' 
