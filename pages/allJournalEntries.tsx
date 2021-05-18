@@ -9,9 +9,7 @@ const AllJournalEntries: React.FC = () => {
   const { loading, error, data } = useQuery(JOURNAL_ENTRIES_QUERY);
   const [deleteJournalEntry] = useMutation(DELETE_JOURNAL_ENTRY);
 
-  let display: [];
   const displayJournalEntries = () => {
-    display = data;
     return data.journalEntries.map((entry: IJournalEntriesQuery) => {
       return (
         <article key={entry.id} className={styles.entry}>
