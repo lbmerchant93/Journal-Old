@@ -1,0 +1,15 @@
+{"data": 
+    {
+        "createJournalEntry": {
+            "date": "2021-05-01",
+            "waterIntake": 74,
+            "proteinIntake": 75,
+            "exercise": 30,
+            "kegels": 75,
+            "garlandPose": 10,
+            "prenatalVitamins": true,
+            "probiotics": true,
+            "userId": "1"
+        }
+    }
+}
