@@ -64,7 +64,7 @@ describe('Dashboard UI', () => {
         cy.get('button').eq(0).should('have.attr', 'type', 'submit')
     })
 
-    it.only('Should be able to submit the form when the required fields are input, it will then redirect you to the All Journal Entries page after alerting that the entry was posted successfully', () => {
+    it('Should be able to submit the form when the required fields are input, it will then redirect you to the All Journal Entries page after alerting that the entry was posted successfully', () => {
         cy.get('input').eq(0).type('2021-05-01')
         cy.get('input').eq(1).type('74')
         cy.get('input').eq(2).type('70')
