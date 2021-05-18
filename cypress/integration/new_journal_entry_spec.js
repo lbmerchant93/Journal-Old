@@ -63,4 +63,76 @@ describe('Dashboard UI', () => {
     it('Should contain a submit button', () => {
         cy.get('button').eq(0).should('have.attr', 'type', 'submit')
     })
+
+    it.only('Should be able to submit the form when the required fields are input, it will then redirect you to the All Journal Entries page after alerting that the entry was posted successfully', () => {
+        cy.get('input').eq(0).type('2021-05-01')
+        cy.get('input').eq(1).type('74')
+        cy.get('input').eq(2).type('70')
+        cy.get('input').eq(3).type('30')
+        cy.get('input').eq(4).type('75')
+        cy.get('input').eq(5).type('10')
+        cy.get('input').eq(6).click()
+        cy.get('input').eq(8).click()
+        cy.intercept('POST', 'https://miwi-be.herokuapp.com/', (req) => {
+            if (req.body.data.createJournalEntry) {
+                req.reply(
+                    {data: 
+                        {
+                            createJournalEntry: {
+                                date: '2021-05-01',
+                                waterIntake: 74,
+                                proteinIntake: 75,
+                                exercise: 30,
+                                kegels: 75,
+                                garlandPose: 10,
+                                prenatalVitamins: true,
+                                probiotics: true,
+                                userId: '1'
+                            }
+                        }
+                    }
+                )
+            } 
+        }).as('createJournalEntry')
+        cy.intercept('POST', 'https://miwi-be.herokuapp.com/', (req) => {
+            if (req.body) {
+                req.reply(
+                    {data: {
+                        journalEntries: [
+                                {
+                                    id: "609eba03ddd9c400158928d0", 
+                                    date: "2021-05-01",
+                                    waterIntake: 74,
+                                    proteinIntake: 70,
+                                    exercise: 30,
+                                    kegels: 75,
+                                    garlandPose: 10,
+                                    prenatalVitamins: true,
+                                    probiotics: true,
+                                    userId: "1"
+                                },
+                                {
+                                    id: "609eba03ddd9c400158928d0", 
+                                    date: "2021-05-02",
+                                    waterIntake: 73,
+                                    proteinIntake: 69,
+                                    exercise: 29,
+                                    kegels: 74,
+                                    garlandPose: 9,
+                                    prenatalVitamins: false,
+                                    probiotics: false,
+                                    userId: "1"
+                                }
+                            ]
+                        }
+                    }
+                )
+            }
+        }).as('allJournalEntries')
+        cy.get('button').eq(0).click()
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal(`Journal entry was successfully posted!!`)
+        })
+        cy.url().should('equal','http://localhost:3000/allJournalEntries')
+    })
 })
