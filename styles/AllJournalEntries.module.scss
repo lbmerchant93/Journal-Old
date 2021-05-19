@@ -1,0 +1,12 @@
+.entry {
+    text-align: center;
+    padding: 5px;
+    border: solid 1px #000;
+    margin: 5px;
+}
+
+.allEntries {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

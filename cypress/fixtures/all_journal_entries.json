@@ -1,0 +1,53 @@
+{"data": {
+    "journalEntries": [
+            {
+                "id": "609eba03ddd9c400158928d0", 
+                "date": "2021-05-01",
+                "waterIntake": 74,
+                "proteinIntake": 70,
+                "exercise": 30,
+                "kegels": 75,
+                "garlandPose": 10,
+                "prenatalVitamins": true,
+                "probiotics": true,
+                "userId": "1"
+            },
+            {
+                "id": "609eba03ddd9c400158928d1", 
+                "date": "2021-05-02",
+                "waterIntake": 73,
+                "proteinIntake": 69,
+                "exercise": 29,
+                "kegels": 74,
+                "garlandPose": 9,
+                "prenatalVitamins": false,
+                "probiotics": false,
+                "userId": "1"
+            },
+            {
+                "id": "609eba03ddd9c400158928d2", 
+                "date": "2021-05-03",
+                "waterIntake": 72,
+                "proteinIntake": 68,
+                "exercise": 28,
+                "kegels": 73,
+                "garlandPose": 8,
+                "prenatalVitamins": true,
+                "probiotics": false,
+                "userId": "1"
+            },
+            {
+                "id": "609eba03ddd9c400158928d3", 
+                "date": "2021-05-04",
+                "waterIntake": 76,
+                "proteinIntake": 71,
+                "exercise": 31,
+                "kegels": 6,
+                "garlandPose": 11,
+                "prenatalVitamins": false,
+                "probiotics": true,
+                "userId": "1"
+            }
+        ]
+    }
+}

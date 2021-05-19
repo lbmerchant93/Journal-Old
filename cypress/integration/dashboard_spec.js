@@ -1,6 +1,16 @@
 describe('Dashboard UI', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000')
+        cy.fixture('all_journal_entries.json')
+            .then((allJournalEntries) => {
+                cy.intercept('POST', 'https://miwi-be.herokuapp.com/', (req) => {
+                    if (req.body) {
+                        req.reply(
+                            allJournalEntries
+                        )
+                    }
+                }).as('allJournalEntries')
+            })
     })
 
     it('Should contain a header', () => {
